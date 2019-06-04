@@ -1,9 +1,11 @@
 import React from 'react';
+import { useStaticQuery, graphql } from "gatsby";
 
 import Layout from '../components/Layout';
 import PageFooter from '../components/PageFooter';
-import SideBar from '../components/SideBar';
+import Sidebar from '../components/Sidebar/index';
 
+import pic1 from '../assets/images/pic01.jpg';
 import pic2 from '../assets/images/pic02.jpg';
 import pic3 from '../assets/images/pic03.jpg';
 import pic4 from '../assets/images/pic04.jpg';
@@ -13,169 +15,264 @@ import pic7 from '../assets/images/pic07.jpg';
 import pic8 from '../assets/images/pic08.jpg';
 import Scroll from '../components/Scroll';
 
+
 const sections = [
-  { id: 'top', name: 'Intro', icon: 'fa-home' },
-  { id: 'portfolio', name: 'Portfolio', icon: 'fa-th' },
-  { id: 'about', name: 'About Me', icon: 'fa-user' },
-  { id: 'contact', name: 'Contact', icon: 'fa-envelope' },
+  { id: 'top', name: 'На главную', icon: 'fa-home' },
+  { id: 'about', name: 'О нас', icon: 'fa-users' },
+  { id: 'advantages', name: 'Преимущества', icon: 'fa-star' },
+  { id: 'gallery', name: 'Галерея', icon: 'fa-th' },
+  { id: 'timetable', name: 'Расписание', icon: 'fa-calendar' },
+  { id: 'contact', name: 'Контакты', icon: 'fa-map-marker' },
 ];
 
-const IndexPage = () => (
+
+
+const IndexPage = () => {
+
+  const data = useStaticQuery(graphql`
+      query {
+        prismicFirstBlock {
+          data {
+            title0 {
+              text
+            }
+            title1 {
+              text
+            }
+            title2 {
+              text
+            }
+            content0 {
+              html
+            }
+            content1 {
+              html
+            }
+            content2 {
+              html
+            }
+            benefit1
+            benefit2
+            benefit3
+            benefit4
+            title3 {
+              text
+            }
+            day1
+            day2
+            day3
+            ttime1
+            ttime2
+            content3 {
+              html
+            }
+            title4 {
+              text
+            }
+            content4 {
+              html
+            }
+            phone {
+              html
+            }
+            email
+          }
+        }
+      }
+  `)
+  const dataTitle0 = data.prismicFirstBlock.data.title0.text;
+  const dataTitle1 = data.prismicFirstBlock.data.title1.text;
+  const dataTitle2 = data.prismicFirstBlock.data.title2.text;
+  const dataTitle3 = data.prismicFirstBlock.data.title3.text;
+  const dataTitle4 = data.prismicFirstBlock.data.title4.text;
+
+  const dataContent0 = data.prismicFirstBlock.data.content0.html;
+  const dataContent1 = data.prismicFirstBlock.data.content1.html;
+  const dataContent2 = data.prismicFirstBlock.data.content2.html;
+  const dataContent3 = data.prismicFirstBlock.data.content3.html;
+  const dataContent4 = data.prismicFirstBlock.data.content4.html;
+
+  const dataBenefit1 = data.prismicFirstBlock.data.benefit1;
+  const dataBenefit2 = data.prismicFirstBlock.data.benefit2;
+  const dataBenefit3 = data.prismicFirstBlock.data.benefit3;
+  const dataBenefit4 = data.prismicFirstBlock.data.benefit4;
+  const dataDay1 = data.prismicFirstBlock.data.day1;
+  const dataDay2 = data.prismicFirstBlock.data.day2;
+  const dataDay3 = data.prismicFirstBlock.data.day3;
+  const dataTtime1 = data.prismicFirstBlock.data.ttime1;
+  const dataTtime2 = data.prismicFirstBlock.data.ttime2;
+  const dataPhone = data.prismicFirstBlock.data.phone.html;
+  const dataEmail = data.prismicFirstBlock.data.email;
+
+
+  return (
   <Layout>
-    <SideBar sections={sections} />
+    <Sidebar sections={sections} />
 
     <div id="main">
+
       <section id="top" className="one dark cover">
+          <div className="container">
+            <header>
+              <h2 className="whiteText">
+                {dataTitle0}
+              </h2>
+              <hr></hr>
+              <p className="whiteText">
+                <div dangerouslySetInnerHTML={{ __html: dataContent0 }} />
+              </p>
+            </header>
+
+            <footer id="buttonMargin">
+              <Scroll type="id" element={'about'}>
+                <a href="#about" className="button">
+                  Узнать больше
+                </a>
+              </Scroll>
+              <br /><br />
+              <Scroll type="id" element={'about'}>
+                <span class="icon fa-chevron-down"></span>
+              </Scroll>
+            </footer>
+          </div>
+      </section>
+
+      <section id="about" className="two">
         <div className="container">
           <header>
-            <h2 className="alt">
-              Hi! I'm <strong>Anubhav</strong>
-              <br />
-              Web developer
-            </h2>
-            <p>I have made few things check it out.</p>
+            <h2>{dataTitle1}</h2>
+            <hr></hr>
           </header>
-
-          <footer>
-            <Scroll type="id" element={'portfolio'}>
-              <a href="#portfolio" className="button">
-                Show me
-              </a>
-            </Scroll>
-          </footer>
+          <div dangerouslySetInnerHTML={{ __html: dataContent1 }} />
         </div>
       </section>
 
-      <section id="portfolio" className="two">
+      <section id="advantages" className="three">
         <div className="container">
           <header>
-            <h2>Portfolio</h2>
+            <h2 className="whiteText">{dataTitle2}</h2>
+            <hr className="white"></hr>
           </header>
 
-          <p>
-            Life will feel it is always a great need for eu valley, the valley
-            CNN ridiculous smile at any time chat mainstream clinical homes.
-            Mauris floor was very warm and we need it. One customer now nibh
-            Bureau dark pools behavior.
-          </p>
+          <div className="row whiteText boldText">
+            <div className="col-3 col-12-mobile">
+              <span class="icon fa-chevron-circle-down iconSizeBig"></span>
+              <p><br />{dataBenefit1}</p>
+            </div>
+            <div className="col-3 col-12-mobile">
+              <span class="icon fa-chevron-circle-down iconSizeBig"></span>
+              <p><br />{dataBenefit2}</p>
+            </div>
+            <div className="col-3 col-12-mobile">
+              <span class="icon fa-chevron-circle-down iconSizeBig"></span>
+              <p><br />{dataBenefit3}</p>
+            </div>
+            <div className="col-3 col-12-mobile">
+              <span class="icon fa-chevron-circle-down iconSizeBig"></span>
+              <p><br />{dataBenefit4}</p>
+            </div>
+          </div>
+
+          <div className="whiteText">
+            <div dangerouslySetInnerHTML={{ __html: dataContent2 }} />
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" className="two noPaddings">
+        <div className="container noPaddings">
 
           <div className="row">
-            <div className="col-4 col-12-mobile">
-              <article className="item">
-                <a href="/#" className="image fit">
-                  <img src={pic2} alt="" />
-                </a>
-                <header>
-                  <h3>Ipsum Feugiat</h3>
-                </header>
-              </article>
-              <article className="item">
-                <a href="/#" className="image fit">
-                  <img src={pic3} alt="" />
-                </a>
-                <header>
-                  <h3>Rhoncus Semper</h3>
-                </header>
-              </article>
+            <div className="col-6 col-12-mobile noPaddings">
+              <img className="image fit cover" src={pic1} alt="" />
             </div>
-            <div className="col-4 col-12-mobile">
-              <article className="item">
-                <a href="/#" className="image fit">
-                  <img src={pic4} alt="" />
-                </a>
-                <header>
-                  <h3>Magna Nullam</h3>
-                </header>
-              </article>
-              <article className="item">
-                <a href="/#" className="image fit">
-                  <img src={pic5} alt="" />
-                </a>
-                <header>
-                  <h3>Natoque Vitae</h3>
-                </header>
-              </article>
+            <div className="col-6 col-12-mobile noPaddings">
+              <img className="image fit cover" src={pic2} alt="" />
             </div>
-            <div className="col-4 col-12-mobile">
-              <article className="item">
-                <a href="/#" className="image fit">
-                  <img src={pic6} alt="" />
-                </a>
-                <header>
-                  <h3>Dolor Penatibus</h3>
-                </header>
-              </article>
-              <article className="item">
-                <a href="/#" className="image fit">
-                  <img src={pic7} alt="" />
-                </a>
-                <header>
-                  <h3>Orci Convallis</h3>
-                </header>
-              </article>
+          </div>
+          <div className="row">
+            <div className="col-6 col-12-mobile noPaddings">
+              <img className="image fit cover" src={pic3} alt="" />
+            </div>
+            <div className="col-6 col-12-mobile noPaddings">
+              <img className="image fit cover" src={pic4} alt="" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-6 col-12-mobile noPaddings">
+              <img className="image fit cover" src={pic5} alt="" />
+            </div>
+            <div className="col-6 col-12-mobile noPaddings">
+              <img className="image fit cover" src={pic6} alt="" />
             </div>
           </div>
         </div>
       </section>
 
-      <section id="about" className="three">
+      <section id="timetable" className="three">
         <div className="container">
           <header>
-            <h2>About Me</h2>
+            <h2 className="whiteText">{dataTitle3}</h2>
+            <hr class="white"></hr>
           </header>
-
-          <a href="/#" className="image featured">
-            <img src={pic8} alt="" />
-          </a>
-
-          <p>
-            Developers football competition in diameter big price to layer the
-            pot. Chavez ultricies care who wants to CNN. Lobortis elementum
-            aliquet eget a den of which they do not hold it in hatred developers
-            nor the mountains of the deposit slip. The element of time, sem ante
-            ullamcorper dolor nulla quam placerat viverra environment is not
-            with our customers. Free makeup and skirt until the mouse or
-            partners or to decorate each targeted.
+          <table className="whiteText">
+            <tr>
+              <td><h4 className="whiteText">#</h4></td>
+              <td><h4 className="whiteText">1-ая смена</h4></td>
+              <td><h4 className="whiteText">2-ая смена</h4></td>
+            </tr>
+            <tr>
+              <td>{dataDay1}</td>
+              <td>{dataTtime1}</td>
+              <td>{dataTtime2}</td>
+            </tr>
+            <tr>
+              <td>{dataDay2}</td>
+              <td>{dataTtime1}</td>
+              <td>{dataTtime2}</td>
+            </tr>
+            <tr>
+              <td>{dataDay3}</td>
+              <td>{dataTtime1}</td>
+              <td>{dataTtime2}</td>
+            </tr>
+          </table>
+          <p className="whiteText">
+            <div dangerouslySetInnerHTML={{ __html: dataContent3 }} />
           </p>
         </div>
       </section>
 
+
       <section id="contact" className="four">
         <div className="container">
           <header>
-            <h2>Contact</h2>
+            <h2>{dataTitle4}</h2>
+            <hr></hr>
           </header>
-
-          <p>
-            The element of time, sem ante ullamcorper dolor nulla quam placerat
-            viverra environment is not with our customers. Free makeup and skirt
-            until the mouse. Japan this innovative and ultricies carton salad
-            clinical ridiculous now passes from enhanced. Mauris pot innovative
-            care for my pain.
-          </p>
-
-          <form method="post" action="#">
-            <div className="row">
-              <div className="col-6 col-12-mobile">
-                <input type="text" name="name" placeholder="Name" />
-              </div>
-              <div className="col-6 col-12-mobile">
-                <input type="text" name="email" placeholder="Email" />
-              </div>
-              <div className="col-12">
-                <textarea name="message" placeholder="Message" />
-              </div>
-              <div className="col-12">
-                <input type="submit" value="Send Message" />
-              </div>
+          <div dangerouslySetInnerHTML={{ __html: dataContent4 }} />
+          <div className="row">
+            <div className="col-6 col-12-mobile">
+              <span class="icon fa-phone orangeColor"></span>
+              <div dangerouslySetInnerHTML={{ __html: dataPhone }} />
             </div>
-          </form>
+            <div className="col-6 col-12-mobile">
+              <span class="icon fa-envelope orangeColor"></span>
+              <p>
+                {dataEmail}
+              </p>
+            </div>
+          </div>
+
         </div>
       </section>
     </div>
 
     <PageFooter />
   </Layout>
-);
+  )
+
+};
+
 
 export default IndexPage;

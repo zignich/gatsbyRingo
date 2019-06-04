@@ -25,6 +25,31 @@
 
 // Reset.
 // Based on meyerweb.com/eric/tools/css/reset (v2.0 | 20110126 | License: public domain)
+	.noPaddings {
+		padding: 0 0 0 0 !important;
+	}
+
+	.iconSizeBig {
+		font-size: 1.5em;
+	}
+
+	.whiteText {
+		color: white !important;
+	}
+
+	.boldText {
+		line-height: 1.2em !important;
+		font-size: 16pt !important;
+		font-weight: 400;
+	}
+
+	article.champs {
+		max-width: 280px !important;
+	}
+
+	.orangeColor {
+		color: #ff724c;
+	}
 
 	html, body, div, span, applet, object,
 	iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -133,7 +158,7 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		font-weight: 300;
+		font-weight: 600;
 		color: #666;
 		line-height: 1.5em;
 	}
@@ -153,7 +178,6 @@
 
 		&.alt {
 			color: #888;
-
 			strong {
 				color: #666;
 			}
@@ -176,6 +200,10 @@
 		margin: 2em 0 0 0;
 	}
 
+	#buttonMargin {
+		margin: 8em 0 0 0;
+	}
+
 	strong, b {
 		font-weight: 300;
 		color: #666;
@@ -188,12 +216,14 @@
 	a {
 		text-decoration: none;
 		color: inherit;
-		border-bottom: dotted 1px rgba(128, 128, 128, 0.5);
+		//border-bottom: dotted 1px rgba(128, 128, 128, 0.5);
+		border-bottom: 1px rgba(128, 128, 128, 0.5);
 		@include vendor('transition', ('color 0.35s ease-in-out', 'border-bottom-color 0.35s ease-in-out'));
 		outline: 0;
 
 		&:hover {
-			color: #E27689;
+			//color: #E27689;
+			color: #ff724c;
 			border-bottom-color: rgba(255, 255, 255, 0);
 		}
 	}
@@ -211,8 +241,19 @@
 	}
 
 	hr {
+		margin-top: 1em;
 		border: 0;
-		border-top: solid 1px #ddd;
+		//border-top: solid 1px #ddd;
+		border-top: solid 4px #ff663d;
+		width: 60px;
+	}
+
+	hr.white {
+		margin-top: 1em;
+		border: 0;
+		//border-top: solid 1px #ddd;
+		border-top: solid 4px #ffcabc;
+		width: 60px;
 	}
 
 	blockquote {
@@ -235,6 +276,8 @@
 		margin: 0 auto;
 		max-width: 100%;
 		width: 1400px;
+		// chin-added
+		min-height: 500px;
 
 		@include breakpoint('wide') {
 			width: 1200px;
@@ -323,6 +366,11 @@
 		&.fit {
 			display: block;
 			width: 100%;
+		}
+
+		&.cover {
+			object-fit: cover;
+			height: 400px;
 		}
 
 		&.featured {
@@ -459,7 +507,7 @@
 
 	table {
 		width: 100%;
-		text-align: left;
+		text-align: center;
 
 		tbody {
 			tr {
@@ -503,18 +551,18 @@
 		color: #fff !important;
 		text-decoration: none;
 		padding: 0.75em 2.5em 0.75em 2.5em;
-		background-color: #8ebebc;
+		background-color: #ff663d;
 		border: 0;
 		cursor: pointer;
-		@include vendor('background-image', ('linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15))', 'url("../images/overlay.png")'));
-		@include vendor('transition', 'background-color 0.35s ease-in-out');
+		//@include vendor('background-image', ('linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15))', 'url("../images/overlay.png")'));
+		//@include vendor('transition', 'background-color 0.35s ease-in-out');
 
 		&:hover {
-			background-color: #9ececc;
+			background-color: #f24516;
 		}
 
 		&:active {
-			background-color: #7eaeac;
+			background-color: #f24516;
 		}
 	}
 
@@ -634,6 +682,8 @@
 	}
 
 	#nav {
+		line-height: 1.5em;
+
 		ul {
 			list-style: none;
 			padding-left: 0;
@@ -650,7 +700,7 @@
 						color: #fff;
 
 						span:before {
-							color: #e27689;
+							color: #ff724c;
 						}
 					}
 				}
@@ -679,7 +729,7 @@
 						}
 					}
 
-					
+
 				}
 			}
 		}
@@ -717,6 +767,7 @@
 
 /* Main */
 
+
 	#main {
 		margin-left: 375px;
 
@@ -734,6 +785,7 @@
 
 				h2, h3, h4, h5, h6 {
 					color: inherit;
+					font-weight: 600;
 				}
 
 				strong {
@@ -767,7 +819,8 @@
 			}
 
 			&.three {
-				background-color: #ecf1f1;
+				//background-color: #ecf1f1;
+				background-color: #ff724c;
 			}
 
 			&.four {
@@ -1094,7 +1147,7 @@
 			h2 {
 				font-size: 1.5em;
 				letter-spacing: 0;
-				font-weight: 300;
+				font-weight: 600;
 			}
 
 			.container {

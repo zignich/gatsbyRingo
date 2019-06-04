@@ -4,9 +4,10 @@ import Header from './Header';
 import Nav from './Nav';
 import TopNav from './TopNav';
 import config from '../../../config';
-const pic = require('../../assets/images/avatar.png');
 
-export default function SideBar({ sections = [] }) {
+import pic from '../../assets/images/avatar.png';
+
+export default function Sidebar({ sections = [] }) {
   const [headerOpen, toggleHeader] = useState(false);
   return (
     <div className={`${headerOpen ? 'header-visible' : ' '}`}>
