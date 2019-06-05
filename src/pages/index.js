@@ -266,6 +266,8 @@ const IndexPage = () => {
             </div>
           </div>
 
+          <iframe title="location on google map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1453.6095649492565!2d76.84364167301632!3d43.22586512650406!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x388369cde1d04293%3A0x3cf37df6987d2231!2sInnova+SPORT!5e0!3m2!1sen!2skz!4v1554798174050!5m2!1sen!2skz" width="800" height="500"></iframe>
+          
         </div>
       </section>
     </div>
