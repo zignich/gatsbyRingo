@@ -259,7 +259,9 @@ const IndexPage = () => {
             <div className="col-6 col-12-mobile">
               <span class="icon fa-envelope orangeColor"></span>
               <p>
-                {dataEmail}
+                <a href={"mailto:" + dataEmail}>
+                  {dataEmail}
+                </a>
               </p>
             </div>
           </div>
