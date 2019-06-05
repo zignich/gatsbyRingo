@@ -39,6 +39,14 @@
 			color: white !important;
 			font-weight: 400;
 		}
+		a {
+			text-decoration: underline !important;
+		}
+		a:hover {
+			color: #ffb9a7;
+			text-decoration: none !important;
+		}
+
 	}
 
 	.boldText {
