@@ -35,6 +35,10 @@
 
 	.whiteText {
 		color: white !important;
+		strong, b {
+			color: white !important;
+			font-weight: 400;
+		}
 	}
 
 	.boldText {
