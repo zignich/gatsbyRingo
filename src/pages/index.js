@@ -4,15 +4,8 @@ import { useStaticQuery, graphql } from "gatsby";
 import Layout from '../components/Layout';
 import PageFooter from '../components/PageFooter';
 import Sidebar from '../components/Sidebar/index';
+import GalleryBlock from '../components/Gallery';
 
-import pic1 from '../assets/images/pic01.jpg';
-import pic2 from '../assets/images/pic02.jpg';
-import pic3 from '../assets/images/pic03.jpg';
-import pic4 from '../assets/images/pic04.jpg';
-import pic5 from '../assets/images/pic05.jpg';
-import pic6 from '../assets/images/pic06.jpg';
-import pic7 from '../assets/images/pic07.jpg';
-import pic8 from '../assets/images/pic08.jpg';
 import Scroll from '../components/Scroll';
 
 
@@ -179,35 +172,7 @@ const IndexPage = () => {
         </div>
       </section>
 
-      <section id="gallery" className="two noPaddings">
-        <div className="container noPaddings">
-
-          <div className="row">
-            <div className="col-6 col-12-mobile noPaddings">
-              <img className="image fit cover" src={pic1} alt="" />
-            </div>
-            <div className="col-6 col-12-mobile noPaddings">
-              <img className="image fit cover" src={pic2} alt="" />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-6 col-12-mobile noPaddings">
-              <img className="image fit cover" src={pic3} alt="" />
-            </div>
-            <div className="col-6 col-12-mobile noPaddings">
-              <img className="image fit cover" src={pic4} alt="" />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-6 col-12-mobile noPaddings">
-              <img className="image fit cover" src={pic5} alt="" />
-            </div>
-            <div className="col-6 col-12-mobile noPaddings">
-              <img className="image fit cover" src={pic6} alt="" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <GalleryBlock />
 
       <section id="timetable" className="three">
         <div className="container">
