@@ -7,7 +7,7 @@ module.exports = {
   manifestThemeColor: '#663399',
   manifestDisplay: 'browser',
   manifestIcon: 'src/assets/img/website-icon.png',
-  pathPrefix: `/gatsby-starter-prologue/`, // This path is subpath of your hosting https://domain/portfolio
+  pathPrefix: `/ringo/`, // This path is subpath of your hosting https://domain/portfolio
   authorName: 'Ringo',
   heading: 'Шотокан Каратэ Клуб',
   // social
