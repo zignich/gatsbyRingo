@@ -9,17 +9,6 @@ import GalleryBlock from '../components/Gallery';
 import Scroll from '../components/Scroll';
 
 
-const sections = [
-  { id: 'top', name: 'На главную', icon: 'fa-home' },
-  { id: 'about', name: 'О нас', icon: 'fa-users' },
-  { id: 'advantages', name: 'Преимущества', icon: 'fa-star' },
-  { id: 'gallery', name: 'Галерея', icon: 'fa-th' },
-  { id: 'timetable', name: 'Расписание', icon: 'fa-calendar' },
-  { id: 'contact', name: 'Контакты', icon: 'fa-map-marker' },
-];
-
-
-
 const IndexPage = () => {
 
   const data = useStaticQuery(graphql`
@@ -71,6 +60,18 @@ const IndexPage = () => {
             email
           }
         }
+
+        prismicMenu {
+          data {
+            menu_name1
+            menu_name2
+            menu_name3
+            menu_name4
+            menu_name5
+            menu_name6
+          }
+        }
+
       }
   `)
   const dataTitle0 = data.prismicFirstBlock.data.title0.text;
@@ -96,6 +97,22 @@ const IndexPage = () => {
   const dataTtime2 = data.prismicFirstBlock.data.ttime2;
   const dataPhone = data.prismicFirstBlock.data.phone.html;
   const dataEmail = data.prismicFirstBlock.data.email;
+
+  const menu_name1 = data.prismicMenu.data.menu_name1;
+  const menu_name2 = data.prismicMenu.data.menu_name2;
+  const menu_name3 = data.prismicMenu.data.menu_name3;
+  const menu_name4 = data.prismicMenu.data.menu_name4;
+  const menu_name5 = data.prismicMenu.data.menu_name5;
+  const menu_name6 = data.prismicMenu.data.menu_name6;
+
+  const sections = [
+    { id: 'top', name: menu_name1, icon: 'fa-home' },
+    { id: 'about', name: menu_name2, icon: 'fa-users' },
+    { id: 'advantages', name: menu_name3, icon: 'fa-star' },
+    { id: 'gallery', name: menu_name4, icon: 'fa-th' },
+    { id: 'timetable', name: menu_name5, icon: 'fa-calendar' },
+    { id: 'contact', name: menu_name6, icon: 'fa-map-marker' },
+  ];
 
 
   return (
