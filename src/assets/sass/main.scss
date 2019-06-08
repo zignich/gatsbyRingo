@@ -385,7 +385,8 @@
 
 		&.cover {
 			object-fit: cover;
-			height: 400px;
+			//height: 400px;
+			height: 100%;
 		}
 
 		&.featured {
