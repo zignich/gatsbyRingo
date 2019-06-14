@@ -44,11 +44,12 @@ class Layout extends Component {
             <Helmet
               title={data.site.siteMetadata.title}
               meta={[
-                { name: 'description', content: 'Eventually' },
-                { name: 'keywords', content: 'site, web' },
+                { name: 'description', content: 'Шотокан Каратэ Клуб Ринго Алматы' },
+                { name: 'google-site-verification', content: 'yPKI4dltsg0pMhiJcHkvU0_6QbJMTThVRt79Ahdc7XY' },
+                { name: 'keywords', content: 'каратэ, алматы, шотокан, дети, клуб, спорт, спортивная секция' }
               ]}
             >
-              <html lang="en" />
+              <html lang="ru" />
             </Helmet>
             <div className={isPreloaded ? 'main-body is-preload' : 'main-body'}>
               {children}
