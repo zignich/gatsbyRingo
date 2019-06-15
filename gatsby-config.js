@@ -8,6 +8,7 @@ module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
     title: config.siteTitle,
+    siteUrl: `https://ringokarate.netlify.com`,
   },
   plugins: [
     {
@@ -36,7 +37,8 @@ module.exports = {
       plugins: [`gatsby-remark-responsive-iframe`],
       },
     },
-    'gatsby-plugin-sass',
-    'gatsby-plugin-offline',
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
   ],
 };
