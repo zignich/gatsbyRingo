@@ -124,9 +124,9 @@ const IndexPage = () => {
       <section id="top" className="one dark cover">
           <div className="container">
             <header>
-              <h2 className="whiteText">
+              <h1 className="whiteText">
                 {dataTitle0}
-              </h2>
+              </h1>
               <hr></hr>
               <p className="whiteText">
                 <div dangerouslySetInnerHTML={{ __html: dataContent0 }} />
