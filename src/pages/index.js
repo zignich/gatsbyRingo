@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 
 import Layout from '../components/Layout';
 import PageFooter from '../components/PageFooter';
@@ -71,6 +71,19 @@ const IndexPage = () => {
             menu_name6
           }
         }
+        allPrismicBlog(sort: {order: DESC, fields: last_publication_date}, limit: 3) {
+          edges {
+            node {
+              last_publication_date(locale: "ru", formatString: "MMMM Do YYYY")
+              uid
+              data {
+                title {
+                  text
+                }
+              }
+            }
+          }
+        }
 
       }
   `)
@@ -110,12 +123,14 @@ const IndexPage = () => {
     { id: 'about', name: menu_name2, icon: 'fa-users' },
     { id: 'advantages', name: menu_name3, icon: 'fa-star' },
     { id: 'gallery', name: menu_name4, icon: 'fa-th' },
+    { id: 'news', name: 'Новости', icon: 'fa-newspaper-o' },
     { id: 'timetable', name: menu_name5, icon: 'fa-calendar' },
     { id: 'contact', name: menu_name6, icon: 'fa-map-marker' },
   ];
 
 
   return (
+
   <Layout>
     <Sidebar sections={sections} />
 
@@ -190,6 +205,33 @@ const IndexPage = () => {
       </section>
 
       <GalleryBlock />
+
+      <section id="news" className="two">
+        <div className="container">
+          <header>
+            <h2>Новости</h2>
+            <hr />
+          </header>
+          <ul className="news">
+            {data.allPrismicBlog.edges.map((edge) =>{
+              return (
+                <li>
+                  <div className="publishedDate">Дата публикации: {edge.node.last_publication_date}</div>
+                  <Link to={'./news/' + edge.node.uid} className="myLink">
+                    <h4>{edge.node.data.title.text}</h4>
+                  </Link>
+                  <hr align="left"></hr>
+                </li>
+              )
+            })}
+          </ul>
+          <div className="row">
+            <div className="col-12 col-12-mobile">
+              <Link to='./news/' className="button">Читать все новости</Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section id="timetable" className="three">
         <div className="container">

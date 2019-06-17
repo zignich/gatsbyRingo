@@ -25,6 +25,22 @@
 
 // Reset.
 // Based on meyerweb.com/eric/tools/css/reset (v2.0 | 20110126 | License: public domain)
+	.myLink {
+		:hover {
+			color: #ff724c;
+		}
+	}
+
+	.publishedDate {
+		font-size: 0.9em;
+		color: grey;
+	}
+
+	.news {
+		text-align: left !important;
+		list-style: none;
+	}
+
 	.noPaddings {
 		padding: 0 0 0 0 !important;
 	}
@@ -220,7 +236,8 @@
 	}
 
 	strong, b {
-		font-weight: 300;
+		//font-weight: 300;
+		font-weight: 500;
 		color: #666;
 	}
 
@@ -698,7 +715,8 @@
 	}
 
 	#nav {
-		line-height: 1.5em;
+		//line-height: 1.5em;
+		line-height: 1.2em;
 
 		ul {
 			list-style: none;
@@ -733,7 +751,7 @@
 					span {
 						position: relative;
 						display: block;
-						font-size: 0.8em;
+						font-size: 0.9em;
 
 						&:before {
 							position: absolute;
@@ -952,7 +970,8 @@
 								&:before {
 									left: 100%;
 									margin-left: -1.25em;
-									line-height: 2.25em;
+									//line-height: 2.25em;
+									line-height: inherit;
 								}
 							}
 						}
