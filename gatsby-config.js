@@ -37,6 +37,13 @@ module.exports = {
       plugins: [`gatsby-remark-responsive-iframe`],
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: "UA-142203364-1",
+      },
+    },
     `gatsby-plugin-sass`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
