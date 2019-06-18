@@ -16,6 +16,9 @@ export const query = graphql`
         content {
           html
         }
+        news_cover {
+          url
+        }
       }
     }
   }
@@ -26,6 +29,7 @@ const News = props => {
   const title = props.data.prismicBlog.data.title.text
   const content = props.data.prismicBlog.data.content.html
   const publishedDate = props.data.prismicBlog.data.publication_date
+  const imageUrl = props.data.prismicBlog.data.news_cover.url
 
   return (
     <Layout>
@@ -38,8 +42,14 @@ const News = props => {
               <hr />
             </header>
             <p className="publishedDate">Дата публикации: {publishedDate}</p>
+            <div className="row">
+              <div className="col-12 col-12-mobile">
+                <img className="image fit cover" src={imageUrl} alt="" />
+              </div>
+            </div>
+            <br />
             <div className="news">
-            <div dangerouslySetInnerHTML={{ __html: content }} />
+              <div dangerouslySetInnerHTML={{ __html: content }} />
             </div>
             <br />
             <div className="row">
