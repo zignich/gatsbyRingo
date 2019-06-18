@@ -10,15 +10,15 @@ const NewsPage = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      allPrismicBlog(sort: {order: DESC, fields: last_publication_date}) {
+      allPrismicBlog(sort: {order: DESC, fields: data___publication_date}) {
         edges {
           node {
-            last_publication_date(locale: "ru", formatString: "MMMM Do YYYY")
             uid
             data {
               title {
                 text
               }
+              publication_date(locale: "ru", formatString: "MMMM Do YYYY")
             }
           }
         }
@@ -39,7 +39,7 @@ const NewsPage = () => {
               {data.allPrismicBlog.edges.map((edge) =>{
                 return (
                   <li>
-                    <div className="publishedDate">Дата публикации: {edge.node.last_publication_date}</div>
+                    <div className="publishedDate">Дата публикации: {edge.node.data.publication_date}</div>
                     <Link to={'./news/' + edge.node.uid} className="myLink">
                       <h4>{edge.node.data.title.text}</h4>
                     </Link>

@@ -8,8 +8,8 @@ import Sidebar from '../components/Sidebar/index';
 export const query = graphql`
   query($uid: String!) {
     prismicBlog(uid: { eq: $uid }) {
-      last_publication_date(locale: "ru", formatString: "MMMM Do YYYY")
       data {
+        publication_date(locale: "ru", formatString: "MMMM Do YYYY")
         title {
           text
         }
@@ -25,7 +25,7 @@ const News = props => {
 
   const title = props.data.prismicBlog.data.title.text
   const content = props.data.prismicBlog.data.content.html
-  const publishedDate = props.data.prismicBlog.last_publication_date
+  const publishedDate = props.data.prismicBlog.data.publication_date
 
   return (
     <Layout>
