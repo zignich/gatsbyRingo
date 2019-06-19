@@ -5,6 +5,8 @@ import Layout from '../components/Layout';
 import PageFooter from '../components/PageFooter';
 import Sidebar from '../components/Sidebar/index';
 
+import {FacebookShareButton, TwitterShareButton, VKShareButton, WhatsappShareButton,} from 'react-share';
+
 export const query = graphql`
   query($uid: String!) {
     prismicBlog(uid: { eq: $uid }) {
@@ -64,15 +66,18 @@ const News = props => {
                   Поделиться новостью:
                 </strong>
                 <div>
-                  <a className="socialLinks" href={"https://www.facebook.com/sharer/sharer.php?u=" + pageUrl}>
-                  <span class="icon fa-facebook"></span>
-                  </a>
-                  <a className="socialLinks" href="https://twitter.com/intent/tweet">
-                  <span class="icon fa-twitter"></span>
-                  </a>
-                  <a className="socialLinks" href={"http://vk.com/share.php?url=" + pageUrl}>
-                  <span class="icon fa-vk"></span>
-                  </a>
+                  <FacebookShareButton url={pageUrl} className="socialLinks">
+                    <span class="icon fa-facebook"></span>
+                  </FacebookShareButton>
+                  <TwitterShareButton url={pageUrl} className="socialLinks">
+                    <span class="icon fa-twitter"></span>
+                  </TwitterShareButton>
+                  <VKShareButton url={pageUrl} className="socialLinks">
+                    <span class="icon fa-vk"></span>
+                  </VKShareButton>
+                  <WhatsappShareButton url={pageUrl} className="socialLinks">
+                    <span class="icon fa-whatsapp"></span>
+                  </WhatsappShareButton>
                 </div>
             </div>
 

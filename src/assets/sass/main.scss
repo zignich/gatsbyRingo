@@ -35,6 +35,10 @@
 .socialLinks {
 		padding-right: 20px;
 		color: #cccccc;
+		display: inline-block;
+		:hover {
+			color: #ff724c;
+		}
 }
 
 	.myLink {
