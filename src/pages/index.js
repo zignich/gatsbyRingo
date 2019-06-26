@@ -227,7 +227,7 @@ const IndexPage = () => {
           </ul>
           <div className="row">
             <div className="col-12 col-12-mobile">
-              <Link to='./news/' className="button">Читать все новости</Link>
+              <Link to='./newsList/' className="button">Читать все новости</Link>
             </div>
           </div>
         </div>
