@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from "gatsby";
+import { Helmet } from "react-helmet";
 
 import Layout from '../components/Layout';
 import PageFooter from '../components/PageFooter';
@@ -132,6 +133,9 @@ const IndexPage = () => {
   return (
 
   <Layout>
+    <Helmet>
+      <meta name="yandex-verification" content="03afc31b8a7ab05e" />
+    </Helmet>
     <Sidebar sections={sections} />
 
     <div id="main">
