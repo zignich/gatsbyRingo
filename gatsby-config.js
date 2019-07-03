@@ -8,7 +8,7 @@ module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
     title: config.siteTitle,
-    siteUrl: `https://ringokarate.netlify.com`,
+    siteUrl: `https://ringokarate.kz`,
   },
   plugins: [
     {
