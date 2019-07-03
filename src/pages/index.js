@@ -135,6 +135,7 @@ const IndexPage = () => {
   <Layout>
     <Helmet>
       <meta name="yandex-verification" content="03afc31b8a7ab05e" />
+      <meta name="google-site-verification" content="hZsQ3_H6IP_mcxhva2EuqKxmEfXO9VrGi6zqEFjyQdE" />
     </Helmet>
     <Sidebar sections={sections} />
 
