@@ -43,14 +43,14 @@ const NewsList = props => {
               <div className="row">
               {!isFirst && (
                 <div className="col-6 col-12-mobile paginationLeft">
-                <Link to={"/newsList/" + prevPage} rel="prev" align="left">
+                <Link to={"/newslist/" + prevPage} rel="prev" align="left">
                   ← Предыдущая страница
                 </Link>
                 </div>
               )}
               {!isLast && (
                 <div className="col-6 col-12-mobile paginationRight">
-                <Link to={"/newsList/" + nextPage} rel="next">
+                <Link to={"/newslist/" + nextPage} rel="next">
                   Следующая страница →
                 </Link>
                 </div>

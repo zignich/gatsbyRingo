@@ -22,8 +22,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
-        path: i === 0 ? `/newsList` : `/newsList/${i + 1}`,
-        component: path.resolve("./src/templates/newsList.js"),
+        path: i === 0 ? `/newslist` : `/newslist/${i + 1}`,
+        component: path.resolve("./src/templates/newslist.js"),
         context: {
           limit: newsPerPage,
           skip: i * newsPerPage,
