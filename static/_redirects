@@ -1,1 +1,2 @@
-https://ringokarate.netlify.com/* https://ringokarate.kz/ 301!
+http://ringokarate.netlify.com/* https://ringokarate.kz/:splat 301!
+https://ringokarate.netlify.com/* https://ringokarate.kz/:splat 301!

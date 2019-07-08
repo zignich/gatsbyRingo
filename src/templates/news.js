@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, Link } from "gatsby";
+import { Helmet } from "react-helmet";
 
 import Layout from '../components/Layout';
 import PageFooter from '../components/PageFooter';
@@ -42,6 +43,9 @@ const News = props => {
 
   return (
     <Layout>
+      <Helmet>
+        <link rel="canonical" href={ pageUrl } />
+      </Helmet>
       <Sidebar />
       <div id="main">
         <section className="two">

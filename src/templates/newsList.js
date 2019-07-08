@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { graphql, Link } from "gatsby";
+import { Helmet } from "react-helmet";
 
 import Layout from '../components/Layout';
 import PageFooter from '../components/PageFooter';
@@ -14,9 +15,14 @@ const NewsList = props => {
   const prevPage = currentPage - 1 === 1 ? "/" : (currentPage - 1).toString()
   const nextPage = (currentPage + 1).toString()
 
+  const allnewspageUrl = data.site.siteMetadata.siteUrl + "/newslist/"
+
     return (
        /* your code to display a list of posts */
        <Layout>
+        <Helmet>
+          <link rel="canonical" href={ allnewspageUrl } />
+        </Helmet>
         <Sidebar />
         <div id="main">
           <section className="two">
@@ -72,6 +78,11 @@ const NewsList = props => {
 
 export const query = graphql`
 query($skip: Int!, $limit: Int!) {
+  site {
+    siteMetadata {
+      siteUrl
+    }
+  }
   allPrismicBlog(sort: {order: DESC, fields: data___publication_date} limit: $limit skip: $skip) {
     edges {
       node {

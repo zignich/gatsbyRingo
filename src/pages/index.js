@@ -14,6 +14,11 @@ const IndexPage = () => {
 
   const data = useStaticQuery(graphql`
       query {
+        site {
+          siteMetadata {
+            siteUrl
+          }
+        }
         prismicFirstBlock {
           data {
             title0 {
@@ -119,6 +124,8 @@ const IndexPage = () => {
   const menu_name5 = data.prismicMenu.data.menu_name5;
   const menu_name6 = data.prismicMenu.data.menu_name6;
 
+  const siteUrl = data.site.siteMetadata.siteUrl;
+
   const sections = [
     { id: 'top', name: menu_name1, icon: 'fa-home' },
     { id: 'about', name: menu_name2, icon: 'fa-users' },
@@ -134,6 +141,7 @@ const IndexPage = () => {
 
   <Layout>
     <Helmet>
+      <link rel="canonical" href={ siteUrl } />
       <meta name="yandex-verification" content="03afc31b8a7ab05e" />
       <meta name="google-site-verification" content="hZsQ3_H6IP_mcxhva2EuqKxmEfXO9VrGi6zqEFjyQdE" />
     </Helmet>
