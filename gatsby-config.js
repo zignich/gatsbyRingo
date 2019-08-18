@@ -44,6 +44,8 @@ module.exports = {
         trackingId: "UA-142203364-1",
       },
     },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     `gatsby-plugin-sass`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,

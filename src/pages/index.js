@@ -8,17 +8,27 @@ import Sidebar from '../components/Sidebar/index';
 import GalleryBlock from '../components/Gallery';
 
 import Scroll from '../components/Scroll';
+import BackgroundImage from 'gatsby-background-image';
 
 
 const IndexPage = () => {
 
   const data = useStaticQuery(graphql`
       query {
-        site {
-          siteMetadata {
-            siteUrl
+        prismicBackgroundImageOnMainBlock {
+          data {
+            bgimage {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 2000) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
           }
         }
+
         prismicFirstBlock {
           data {
             title0 {
@@ -93,6 +103,8 @@ const IndexPage = () => {
 
       }
   `)
+  const firstBgImage = data.prismicBackgroundImageOnMainBlock.data.bgimage.localFile.childImageSharp.fluid;
+
   const dataTitle0 = data.prismicFirstBlock.data.title0.text;
   const dataTitle1 = data.prismicFirstBlock.data.title1.text;
   const dataTitle2 = data.prismicFirstBlock.data.title2.text;
@@ -124,8 +136,6 @@ const IndexPage = () => {
   const menu_name5 = data.prismicMenu.data.menu_name5;
   const menu_name6 = data.prismicMenu.data.menu_name6;
 
-  const siteUrl = data.site.siteMetadata.siteUrl;
-
   const sections = [
     { id: 'top', name: menu_name1, icon: 'fa-home' },
     { id: 'about', name: menu_name2, icon: 'fa-users' },
@@ -138,10 +148,8 @@ const IndexPage = () => {
 
 
   return (
-
   <Layout>
     <Helmet>
-      <link rel="canonical" href={ siteUrl } />
       <meta name="yandex-verification" content="03afc31b8a7ab05e" />
       <meta name="google-site-verification" content="hZsQ3_H6IP_mcxhva2EuqKxmEfXO9VrGi6zqEFjyQdE" />
     </Helmet>
@@ -149,7 +157,7 @@ const IndexPage = () => {
 
     <div id="main">
 
-      <section id="top" className="one dark cover">
+      <BackgroundImage Tag="section" id="top" className="one dark cover" fluid={firstBgImage}>
           <div className="container">
             <header>
               <h1 className="whiteText">
@@ -173,7 +181,8 @@ const IndexPage = () => {
               </Scroll>
             </footer>
           </div>
-      </section>
+      </BackgroundImage>
+
 
       <section id="about" className="two">
         <div className="container">
