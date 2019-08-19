@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
+import Img from 'gatsby-image';
 
 import Layout from '../components/Layout';
 import PageFooter from '../components/PageFooter';
@@ -21,7 +22,13 @@ export const query = graphql`
           html
         }
         news_cover {
-          url
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1200) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }
@@ -38,7 +45,7 @@ const News = props => {
   const title = props.data.prismicBlog.data.title.text
   const content = props.data.prismicBlog.data.content.html
   const publishedDate = props.data.prismicBlog.data.publication_date
-  const imageUrl = props.data.prismicBlog.data.news_cover.url
+  const newsImage = props.data.prismicBlog.data.news_cover.localFile.childImageSharp.fluid
   const pageUrl = props.data.site.siteMetadata.siteUrl + "/news/" + props.data.prismicBlog.uid
 
   return (
@@ -57,7 +64,7 @@ const News = props => {
             <p className="publishedDate">Дата публикации: {publishedDate}</p>
             <div className="row">
               <div className="col-12 col-12-mobile">
-                <img className="image fit cover" src={imageUrl} alt="" />
+                <Img className="image fit cover" fluid={newsImage} />
               </div>
             </div>
             <br />
