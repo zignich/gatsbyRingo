@@ -12,7 +12,7 @@ const GalleryBlock = () => {
             localFile {
               childImageSharp {
                 fluid(maxWidth: 1000) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -21,7 +21,7 @@ const GalleryBlock = () => {
             localFile {
               childImageSharp {
                 fluid(maxWidth: 1000) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -30,7 +30,7 @@ const GalleryBlock = () => {
             localFile {
               childImageSharp {
                 fluid(maxWidth: 1000) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -39,7 +39,7 @@ const GalleryBlock = () => {
             localFile {
               childImageSharp {
                 fluid(maxWidth: 1000) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -48,7 +48,7 @@ const GalleryBlock = () => {
             localFile {
               childImageSharp {
                 fluid(maxWidth: 1000) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -57,7 +57,7 @@ const GalleryBlock = () => {
             localFile {
               childImageSharp {
                 fluid(maxWidth: 1000) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
